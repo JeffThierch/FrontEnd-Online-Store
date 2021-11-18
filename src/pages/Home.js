@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { getCategories } from '../services/api';
+import Categories from '../components/Categories';
 
 export default class Home extends Component {
   constructor() {
@@ -24,16 +25,7 @@ export default class Home extends Component {
 
     return (
       <main>
-        <div>
-          {categories.map((category) => (
-            <div key={ category.id }>
-              <label htmlFor="category" data-testid="category">
-                {category.name}
-                <input type="radio" id="category" name="category" />
-              </label>
-            </div>
-          ))}
-        </div>
+        <Categories categories={ categories } />
 
         <div>
           <label htmlFor="search">
