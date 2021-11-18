@@ -6,16 +6,16 @@ export default class Categories extends Component {
     const { categories } = this.props;
 
     return (
-      <div>
+      <aside>
         {categories.map((category) => (
           <div key={ category.id }>
-            <label htmlFor="category" data-testid="category">
+            <label htmlFor={ category.name } data-testid="category">
               {category.name}
-              <input type="radio" id="category" name="category" />
+              <input type="radio" id={ category.name } name="category" />
             </label>
           </div>
         ))}
-      </div>
+      </aside>
     );
   }
 }
