@@ -1,16 +1,15 @@
 import React from 'react';
 import './App.css';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import Home from './pages/Home';
 
 function App() {
   return (
-    <div className="App">
-      <label htmlFor="search">
-        <input type="text" name="search" id="search" />
-      </label>
-      <h2 data-testid="home-initial-message">
-        Digite algum termo de pesquisa ou escolha uma categoria.
-      </h2>
-    </div>
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/" component={ Home } />
+      </Switch>
+    </BrowserRouter>
   );
 }
 
