@@ -14,6 +14,7 @@ export default class Home extends Component {
       userSearchInput: '',
       userCategory: '',
       userSearchResult: [],
+      userCartProducts: [],
     };
   }
 
@@ -46,6 +47,33 @@ export default class Home extends Component {
     this.setState({
       userSearchResult: searchData.results,
     });
+  }
+
+  addToCart = (produto) => {
+    const { userCartProducts } = this.state;
+    const filterProducts = userCartProducts.filter(({ name }) => name !== produto.name);
+    let itemsCart = [];
+    if (filterProducts.length === 0) {
+      itemsCart = [produto];
+      this.setState({
+        userCartProducts: itemsCart,
+      }, () => {
+        this.saveCartItemsInLocalStorage(itemsCart);
+      });
+    } else {
+      itemsCart = [...filterProducts, produto];
+      this.setState({
+        userCartProducts: itemsCart,
+      }, () => this.saveCartItemsInLocalStorage(itemsCart));
+    }
+  }
+
+  saveCartItemsInLocalStorage = (cartItems) => {
+    if (!JSON.parse(localStorage.getItem('cart_items'))) {
+      localStorage.setItem('cart_items', JSON.stringify(cartItems));
+    } else {
+      localStorage.setItem('cart_items', JSON.stringify(cartItems));
+    }
   }
 
   render() {
@@ -85,7 +113,11 @@ export default class Home extends Component {
           handleClick={ this.handleClick }
         />
         {userSearchResult.map((item, index) => (
-          <ProductCard key={ index } searchData={ item } />
+          <ProductCard
+            key={ index }
+            searchData={ item }
+            addToCart={ this.addToCart }
+          />
         ))}
       </main>
     );
