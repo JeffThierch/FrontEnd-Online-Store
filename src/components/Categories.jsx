@@ -3,15 +3,20 @@ import PropTypes from 'prop-types';
 
 export default class Categories extends Component {
   render() {
-    const { categories } = this.props;
-
+    const { categories, handleClick } = this.props;
     return (
       <aside>
-        {categories.map((category) => (
-          <div key={ category.id }>
-            <label htmlFor={ category.name } data-testid="category">
-              {category.name}
-              <input type="radio" id={ category.name } name="category" />
+        {categories.map(({ id, name }) => (
+          <div key={ id }>
+            <label htmlFor={ name } data-testid="category">
+              {name}
+              <input
+                type="radio"
+                id={ name }
+                name="userCategory"
+                value={ id }
+                onClick={ handleClick }
+              />
             </label>
           </div>
         ))}
@@ -22,4 +27,5 @@ export default class Categories extends Component {
 
 Categories.propTypes = {
   categories: PropTypes.arrayOf(PropTypes.object).isRequired,
+  handleClick: PropTypes.func.isRequired,
 };
