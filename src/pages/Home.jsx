@@ -44,7 +44,7 @@ export default class Home extends Component {
       await getProductsFromCategoryAndQuery(userCategory, userSearchInput)
     );
     this.setState({
-      userSearchResult: searchData,
+      userSearchResult: searchData.results,
     });
   }
 
