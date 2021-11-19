@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 export default class ItemCard extends Component {
   render() {
     const { location: { state } } = this.props;
-    const { item: { title, thumbnail, price, attributes } } = state;
+    const { searchData: { title, thumbnail, price, attributes } } = state;
     return (
       <main>
         <section>

@@ -11,7 +11,7 @@ function App() {
       <Switch>
         <Route exact path="/" component={ Home } />
         <Route exact path="/cart" component={ Cart } />
-        <Route exact path="/item" component={ ItemCard } />
+        <Route exact path="/item/:id" render={ (props) => <ItemCard { ...props } /> } />
       </Switch>
     </BrowserRouter>
   );

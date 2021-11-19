@@ -113,16 +113,11 @@ export default class Home extends Component {
           handleClick={ this.handleClick }
         />
         {userSearchResult.map((item, index) => (
-          <Link
-            to={ { pathname: '/item', state: { item } } }
+          <ProductCard
             key={ index }
-            data-testid="product-detail-link"
-          >
-           <ProductCard
             searchData={ item }
             addToCart={ this.addToCart }
           />
-          </Link>
         ))}
       </main>
     );

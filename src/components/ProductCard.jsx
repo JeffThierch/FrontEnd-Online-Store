@@ -1,12 +1,19 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 export default class ProductCard extends Component {
   render() {
-    const { searchData: { title, price, thumbnail }, addToCart } = this.props;
+    const { searchData: { title, price, thumbnail, id }, addToCart } = this.props;
+    const { searchData } = this.props;
     return (
       <section data-testid="product">
-        <h1>{title}</h1>
+        <Link
+          to={ { pathname: `/item/${id}`, state: { searchData } } }
+          data-testid="product-detail-link"
+        >
+          <h1>{title}</h1>
+        </Link>
         <img src={ thumbnail } alt={ `img from ${title}` } />
         <p>{price}</p>
         <button
