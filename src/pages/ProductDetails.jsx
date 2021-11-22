@@ -19,7 +19,7 @@ export default class ItemCard extends Component {
           <button
             data-testid="product-detail-add-to-cart"
             type="button"
-            onClick={ () => addToCart({ name: title, price, quantity: 1 }) }
+            onClick={ () => addToCart({ name: title, price }) }
           >
             Adicionar ao carrinho
 
