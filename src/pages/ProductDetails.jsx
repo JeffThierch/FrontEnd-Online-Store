@@ -26,12 +26,12 @@ export default class ItemCard extends Component {
   }
 
   render() {
-    const { location: { state } } = this.props;
+    const { location: { data }, addToCart } = this.props;
     const {
       searchData: { title, thumbnail, price, attributes },
       email,
       evaluation,
-    } = state;
+    } = data;
 
     return (
       <main>
@@ -44,6 +44,14 @@ export default class ItemCard extends Component {
           {attributes.map(({ id, name, value_name: valueName }) => (
             <p key={ id }>{ `${name}: ${valueName}` }</p>
           ))}
+          <button
+            data-testid="product-detail-add-to-cart"
+            type="button"
+            onClick={ () => addToCart({ name: title, price, quantity: 1 }) }
+          >
+            Adicionar ao carrinho
+
+          </button>
         </section>
 
         <section>
@@ -88,4 +96,5 @@ export default class ItemCard extends Component {
 
 ItemCard.propTypes = {
   location: PropTypes.objectOf(PropTypes.any).isRequired,
+  addToCart: PropTypes.func.isRequired,
 };
