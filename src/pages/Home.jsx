@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import CartIcon from '../assets/CartIcon';
+import PropTypes from 'prop-types';
 import { getCategories, getProductsFromCategoryAndQuery } from '../services/api';
 import Categories from '../components/Categories';
 import ProductCard from '../components/ProductCard';
@@ -14,7 +13,6 @@ export default class Home extends Component {
       userSearchInput: '',
       userCategory: '',
       userSearchResult: [],
-      userCartProducts: [],
     };
   }
 
@@ -49,35 +47,9 @@ export default class Home extends Component {
     });
   }
 
-  addToCart = (produto) => {
-    const { userCartProducts } = this.state;
-    const filterProducts = userCartProducts.filter(({ name }) => name !== produto.name);
-    let itemsCart = [];
-    if (filterProducts.length === 0) {
-      itemsCart = [produto];
-      this.setState({
-        userCartProducts: itemsCart,
-      }, () => {
-        this.saveCartItemsInLocalStorage(itemsCart);
-      });
-    } else {
-      itemsCart = [...filterProducts, produto];
-      this.setState({
-        userCartProducts: itemsCart,
-      }, () => this.saveCartItemsInLocalStorage(itemsCart));
-    }
-  }
-
-  saveCartItemsInLocalStorage = (cartItems) => {
-    if (!JSON.parse(localStorage.getItem('cart_items'))) {
-      localStorage.setItem('cart_items', JSON.stringify(cartItems));
-    } else {
-      localStorage.setItem('cart_items', JSON.stringify(cartItems));
-    }
-  }
-
   render() {
     const { categories, userSearchResult } = this.state;
+    const { addToCart } = this.props;
     return (
       <main>
         <section>
@@ -98,11 +70,7 @@ export default class Home extends Component {
 
             </button>
           </label>
-          <Link to="/cart" data-testid="shopping-cart-button">
-            <button type="button">
-              <CartIcon />
-            </button>
-          </Link>
+
         </section>
         <h2 data-testid="home-initial-message">
           Digite algum termo de pesquisa ou escolha uma categoria.
@@ -116,10 +84,14 @@ export default class Home extends Component {
           <ProductCard
             key={ index }
             searchData={ item }
-            addToCart={ this.addToCart }
+            addToCart={ addToCart }
           />
         ))}
       </main>
     );
   }
 }
+
+Home.propTypes = {
+  addToCart: PropTypes.func.isRequired,
+};

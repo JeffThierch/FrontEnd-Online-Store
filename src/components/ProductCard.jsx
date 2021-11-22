@@ -4,12 +4,12 @@ import { Link } from 'react-router-dom';
 
 export default class ProductCard extends Component {
   render() {
-    const { searchData: { title, price, thumbnail, id }, addToCart } = this.props;
-    const { searchData } = this.props;
+    const { searchData, addToCart } = this.props;
+    const { title, price, thumbnail, id } = searchData;
     return (
       <section data-testid="product">
         <Link
-          to={ { pathname: `/item/${id}`, state: { searchData } } }
+          to={ { pathname: `/item/${id}`, data: { searchData } } }
           data-testid="product-detail-link"
         >
           <h1>{title}</h1>
