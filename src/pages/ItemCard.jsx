@@ -2,9 +2,37 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 export default class ItemCard extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      email: '',
+      evaluation: '',
+    };
+  }
+
+  saveEvaluation = (event) => {
+    event.preventDefault();
+    const { email, evaluation } = this.state;
+    console.log(email, evaluation);
+  }
+
+  handleChange = ({ target }) => {
+    const { name, value } = target;
+
+    this.setState({
+      [name]: value,
+    });
+  }
+
   render() {
     const { location: { state } } = this.props;
-    const { searchData: { title, thumbnail, price, attributes } } = state;
+    const {
+      searchData: { title, thumbnail, price, attributes },
+      email,
+      evaluation,
+    } = state;
+
     return (
       <main>
         <section>
@@ -16,6 +44,42 @@ export default class ItemCard extends Component {
           {attributes.map(({ id, name, value_name: valueName }) => (
             <p key={ id }>{ `${name}: ${valueName}` }</p>
           ))}
+        </section>
+
+        <section>
+          <h1>Avaliações</h1>
+          <form action="">
+            <label htmlFor="email">
+              Email
+              <input
+                type="text"
+                name="email"
+                id="email"
+                value={ email }
+                onChange={ this.handleChange }
+              />
+            </label>
+
+            <label htmlFor="evaluation">
+              <textarea
+                name="evaluation"
+                id="evaluation"
+                cols="30"
+                rows="10"
+                data-testid="product-detail-evaluation"
+                value={ evaluation }
+                onChange={ this.handleChange }
+              />
+            </label>
+
+            <button
+              type="submit"
+              onClick={ this.saveEvaluation }
+            >
+              Avaliar
+
+            </button>
+          </form>
         </section>
       </main>
     );
