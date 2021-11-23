@@ -24,6 +24,7 @@ export default class Categories extends Component {
                 name="userCategory"
                 value={ id }
                 onClick={ handleClick }
+                className="category-radio"
               />
             </label>
           </div>

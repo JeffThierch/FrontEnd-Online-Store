@@ -15,10 +15,10 @@
 
 .description-section {
   display: flex;
-  text-align: center;
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  text-align: center;
 }
 
 .quantity-section {
@@ -65,9 +65,9 @@
 }
 
 .decrease-btn:hover {
-  transition: ease 0.25s;
   background-color: #542158;
   cursor: pointer;
+  transition: ease 0.25s;
 }
 
 .increase-btn {
@@ -81,7 +81,7 @@
 }
 
 .increase-btn:hover {
-  transition: ease 0.25s;
   background-color: #542158;
   cursor: pointer;
+  transition: ease 0.25s;
 }
