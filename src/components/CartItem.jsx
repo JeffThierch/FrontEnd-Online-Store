@@ -6,12 +6,18 @@ export default class CartItem extends Component {
     super(props);
     this.state = {
       quantity: 1,
+      isDisable: false,
     };
   }
 
   onClickIncrease = () => {
+    const { cartItems: { availableQuantity } } = this.props;
     const { quantity } = this.state;
-    this.setState({ quantity: quantity + 1 });
+    if (quantity >= availableQuantity) {
+      this.setState({ isDisable: true });
+    } else {
+      this.setState({ quantity: quantity + 1 });
+    }
   };
 
   onClickDecrease = () => {
@@ -25,7 +31,7 @@ export default class CartItem extends Component {
 
   render() {
     const { cartItems: { name, price } } = this.props;
-    const { quantity } = this.state;
+    const { quantity, isDisable } = this.state;
     return (
       <div className="cart-item">
         <section className="description-section">
@@ -46,6 +52,7 @@ export default class CartItem extends Component {
             data-testid="product-decrease-quantity"
             type="button"
             onClick={ this.onClickDecrease }
+            disabled={ isDisable }
             className="decrease-btn"
           >
             -
@@ -59,6 +66,7 @@ export default class CartItem extends Component {
           <button
             data-testid="product-increase-quantity"
             type="button"
+            disabled={ isDisable }
             onClick={ this.onClickIncrease }
             className="increase-btn"
           >
