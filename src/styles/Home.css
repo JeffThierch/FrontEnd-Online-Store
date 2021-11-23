@@ -2,15 +2,14 @@
   align-items: space-around;
   display: flex;
   justify-content: space-between;
-  margin: 0 0.5rem 0rem 0.5rem;
+  margin: 0 0.5rem;
 }
 
 .search-bar-input {
   background-color: hsl(0, 0%, 90%);
   border-color: #7a328000;
   border-width: 0 0 0.2rem;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: -apple-system , Roboto , sans-serif;
   outline: none;
   padding: 0.5rem 2rem;
   transition: ease 0.5s;
@@ -26,9 +25,8 @@
   background-color: #793280;
   border: none;
   border-radius: 3px;
-  color: hsl(0, 0%, 100%);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  color: white;
+  font-family: -apple-system , Roboto , sans-serif;
   padding: 0.9rem 1.5rem;
 }
 
@@ -45,8 +43,7 @@
 
 .category-aside {
   display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
+  flex-flow: column;
   width: 20%;
 }
 
