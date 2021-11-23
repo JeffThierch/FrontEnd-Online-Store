@@ -6,7 +6,8 @@ import '../styles/ProductCard.css';
 export default class ProductCard extends Component {
   render() {
     const { searchData, addToCart } = this.props;
-    const { title, price, thumbnail, id } = searchData;
+    const { title, price, thumbnail,
+      id, available_quantity: availableQuantity } = searchData;
     return (
       <section
         data-testid="product"
@@ -29,7 +30,7 @@ export default class ProductCard extends Component {
           data-testid="product-add-to-cart"
           type="button"
           className="product-btn"
-          onClick={ () => addToCart({ name: title, price }) }
+          onClick={ () => addToCart({ name: title, price, availableQuantity }) }
         >
           Adicionar ao carrinho
 

@@ -29,10 +29,12 @@ export default class ItemCard extends Component {
   render() {
     const { location: { data }, addToCart } = this.props;
     const {
-      searchData: { title, thumbnail, price, attributes },
+      searchData: { title, thumbnail, price,
+        attributes, available_quantity: availableQuantity },
       email,
       evaluation,
     } = data;
+    console.log(availableQuantity);
 
     return (
       <main>
@@ -48,7 +50,7 @@ export default class ItemCard extends Component {
           <button
             data-testid="product-detail-add-to-cart"
             type="button"
-            onClick={ () => addToCart({ name: title, price }) }
+            onClick={ () => addToCart({ name: title, price, availableQuantity }) }
           >
             Adicionar ao carrinho
 
