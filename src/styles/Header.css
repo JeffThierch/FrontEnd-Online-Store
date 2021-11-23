@@ -1,0 +1,57 @@
+.header-container {
+  align-items: center;
+  background-color: #202021;
+  box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  padding: 0.75rem 4rem;
+}
+
+.header-texts {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 28rem;
+}
+
+.header-logo {
+  color: #793280;
+  height: 3rem;
+}
+
+.header-title, .header-slogan {
+  color: white;
+  font-family: (-apple-system , Roboto , sans-serif);
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all ease 0.5s;
+}
+
+.header-slogan {
+  color: #8f3597;
+  font-size: 1rem;
+}
+
+.header-bar {
+  color: #8f3597;
+}
+
+.header-title:hover {
+  color: #ccc;
+  cursor: pointer;
+}
+
+.cart-btn {
+  background-color: #793280;
+  border: none;
+  border-radius: 3px;
+  color: white;
+  padding: 0.5rem 2rem;
+}
+
+.cart-btn:hover {
+  color: #ccc;
+  cursor: pointer;
+}

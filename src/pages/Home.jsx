@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { getCategories, getProductsFromCategoryAndQuery } from '../services/api';
 import Categories from '../components/Categories';
 import ProductCard from '../components/ProductCard';
+import '../styles/Home.css';
+import '../styles/Categories.css';
 
 export default class Home extends Component {
   constructor() {
@@ -53,40 +55,50 @@ export default class Home extends Component {
     return (
       <main>
         <section>
-          <label htmlFor="search">
+          <label htmlFor="search" className="search-area">
             <input
               type="text"
               name="userSearchInput"
               id="search"
               onChange={ this.handleChange }
               data-testid="query-input"
+              className="search-bar-input"
             />
             <button
               type="button"
               onClick={ this.searchProduct }
               data-testid="query-button"
+              className="search-bar-btn"
             >
               Pesquisar
 
             </button>
           </label>
-
         </section>
-        <h2 data-testid="home-initial-message">
-          Digite algum termo de pesquisa ou escolha uma categoria.
-        </h2>
-        <Categories
-          categories={ categories }
-          handleChange={ this.handleChange }
-          handleClick={ this.handleClick }
-        />
-        {userSearchResult.map((item, index) => (
-          <ProductCard
-            key={ index }
-            searchData={ item }
-            addToCart={ addToCart }
-          />
-        ))}
+        <section className="home-content">
+          <div className="category-aside">
+            <h2
+              data-testid="home-initial-message"
+              className="category-title"
+            >
+              Digite algum termo de pesquisa ou escolha uma categoria.
+            </h2>
+            <Categories
+              categories={ categories }
+              handleChange={ this.handleChange }
+              handleClick={ this.handleClick }
+            />
+          </div>
+          <div className="product-content">
+            {userSearchResult.map((item, index) => (
+              <ProductCard
+                key={ index }
+                searchData={ item }
+                addToCart={ addToCart }
+              />
+            ))}
+          </div>
+        </section>
       </main>
     );
   }

@@ -1,0 +1,37 @@
+.category-title {
+  border: 0.15rem dashed #7a3280;
+  border-bottom: none;
+  color: white;
+  font-family: (-apple-system , Roboto , sans-serif);
+  font-size: 1.2em;
+  margin-bottom: 0;
+  padding: 1rem;
+}
+
+.categories-list {
+  background-color: #7a3280;
+  border-radius: 3px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  font-family: (-apple-system , Roboto , sans-serif);
+  padding: 0.5rem 0.25rem;
+}
+
+.category-item {
+  margin: 0.5rem;
+}
+
+.category-label:hover {
+  background-color: #472249;
+  border-radius: 3px;
+  color: #ccc;
+  cursor: pointer;
+  padding: 0.5rem;
+  text-decoration: underline;
+  transition: ease 0.1s;
+}
+
+.category-radio {
+  display: none;
+}

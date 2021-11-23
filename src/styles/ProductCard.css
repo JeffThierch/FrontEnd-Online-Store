@@ -1,0 +1,51 @@
+.product-card {
+  align-items: center;
+  background-color: rgb(32, 32, 33);
+  border-radius: 9px;
+  box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-evenly;
+  margin: 1rem;
+  padding: 2rem;
+  text-align: center;
+  width: 15rem;
+}
+
+.product-card:hover {
+  background-color: rgb(23, 23, 24);
+  transition: ease-in-out 0.25s;
+}
+
+.product-title {
+  color: white;
+  font-family: (-apple-system , Roboto , sans-serif);
+  text-decoration: none;
+}
+
+.product-title:hover {
+  text-decoration: underline;
+}
+
+.product-img {
+  width: 8rem;
+}
+
+.product-price {
+  color: white;
+  font-family: (-apple-system , Roboto , sans-serif);
+}
+
+.product-btn {
+  background-color: rgb(121, 50, 128);
+  border: none;
+  border-radius: 3px;
+  color: white;
+  font-family: (-apple-system , Roboto , sans-serif);
+  padding: 0.9rem 1.5rem;
+}
+
+.product-btn:hover {
+  color: rgb(204, 204, 204);
+  cursor: pointer;
+}

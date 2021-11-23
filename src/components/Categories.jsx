@@ -1,14 +1,22 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import '../styles/Categories.css';
 
 export default class Categories extends Component {
   render() {
     const { categories, handleClick } = this.props;
     return (
-      <aside>
+      <aside className="categories-list">
         {categories.map(({ id, name }) => (
-          <div key={ id }>
-            <label htmlFor={ name } data-testid="category">
+          <div
+            key={ id }
+            className="category-item"
+          >
+            <label
+              htmlFor={ name }
+              data-testid="category"
+              className="category-label"
+            >
               {name}
               <input
                 type="radio"
@@ -16,6 +24,7 @@ export default class Categories extends Component {
                 name="userCategory"
                 value={ id }
                 onClick={ handleClick }
+                className="category-radio"
               />
             </label>
           </div>

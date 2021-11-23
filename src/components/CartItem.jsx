@@ -27,24 +27,44 @@ export default class CartItem extends Component {
     const { cartItems: { name, price } } = this.props;
     const { quantity } = this.state;
     return (
-      <div>
-        <p data-testid="shopping-cart-product-name">{name}</p>
-        <p>{price}</p>
-        <button
-          data-testid="product-decrease-quantity"
-          type="button"
-          onClick={ this.onClickDecrease }
-        >
-          -
-        </button>
-        <p data-testid="shopping-cart-product-quantity">{quantity}</p>
-        <button
-          data-testid="product-increase-quantity"
-          type="button"
-          onClick={ this.onClickIncrease }
-        >
-          +
-        </button>
+      <div className="cart-item">
+        <section className="description-section">
+          <p
+            data-testid="shopping-cart-product-name"
+            className="cartItem-title"
+          >
+            {name}
+          </p>
+          <p
+            className="cartItem-price"
+          >
+            {`R$${price}`}
+          </p>
+        </section>
+        <section className="quantity-section">
+          <button
+            data-testid="product-decrease-quantity"
+            type="button"
+            onClick={ this.onClickDecrease }
+            className="decrease-btn"
+          >
+            -
+          </button>
+          <p
+            data-testid="shopping-cart-product-quantity"
+            className="cartItem-quantity"
+          >
+            {quantity}
+          </p>
+          <button
+            data-testid="product-increase-quantity"
+            type="button"
+            onClick={ this.onClickIncrease }
+            className="increase-btn"
+          >
+            +
+          </button>
+        </section>
       </div>
     );
   }
