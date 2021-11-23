@@ -6,8 +6,11 @@ import '../styles/ProductCard.css';
 export default class ProductCard extends Component {
   render() {
     const { searchData, addToCart } = this.props;
-    const { title, price, thumbnail,
-      id, available_quantity: availableQuantity } = searchData;
+    const { title,
+      price,
+      thumbnail,
+      id, available_quantity: availableQuantity,
+      shipping: { free_shipping: freeShiping } } = searchData;
     return (
       <section
         data-testid="product"
@@ -20,6 +23,8 @@ export default class ProductCard extends Component {
         >
           <h1>{title}</h1>
         </Link>
+        {freeShiping ? <p data-testid="free-shipping">DIGRATIS</p> : ''}
+
         <img
           src={ thumbnail }
           alt={ `img from ${title}` }

@@ -29,12 +29,16 @@ export default class ItemCard extends Component {
   render() {
     const { location: { data }, addToCart } = this.props;
     const {
-      searchData: { title, thumbnail, price,
-        attributes, available_quantity: availableQuantity },
+      searchData: {
+        title,
+        thumbnail,
+        price,
+        attributes,
+        available_quantity: availableQuantity,
+        shipping: { free_shipping: freeShiping } },
       email,
       evaluation,
     } = data;
-    console.log(availableQuantity);
 
     return (
       <main>
@@ -43,6 +47,7 @@ export default class ItemCard extends Component {
             <h1 data-testid="product-detail-name">{ title }</h1>
             <h2>{ `R$ ${price}` }</h2>
           </div>
+          {freeShiping ? <p data-testid="free-shipping">DIGRATIS</p> : ''}
           <img src={ thumbnail } alt={ `img from ${title}` } />
           {attributes.map(({ id, name, value_name: valueName }) => (
             <p key={ id }>{ `${name}: ${valueName}` }</p>
