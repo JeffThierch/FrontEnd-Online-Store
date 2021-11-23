@@ -19,7 +19,7 @@
 
 .product-title {
   color: white;
-  font-family: (-apple-system , Roboto , sans-serif);
+  font-family: -apple-system , Roboto , sans-serif;
   text-decoration: none;
 }
 
@@ -33,7 +33,7 @@
 
 .product-price {
   color: white;
-  font-family: (-apple-system , Roboto , sans-serif);
+  font-family: -apple-system , Roboto , sans-serif;
 }
 
 .product-btn {
@@ -41,7 +41,7 @@
   border: none;
   border-radius: 3px;
   color: white;
-  font-family: (-apple-system , Roboto , sans-serif);
+  font-family: -apple-system , Roboto , sans-serif;
   padding: 0.9rem 1.5rem;
 }
 

@@ -23,7 +23,7 @@
 
 .header-title, .header-slogan {
   color: white;
-  font-family: (-apple-system , Roboto , sans-serif);
+  font-family: -apple-system , Roboto , sans-serif;
   font-size: 1rem;
   text-decoration: none;
   transition: all ease 0.5s;
