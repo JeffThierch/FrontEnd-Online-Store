@@ -33,7 +33,7 @@
 }
 
 .search-bar-btn:hover {
-  color: hsl(0, 0%, 80%);
+  color: #ccc;
   cursor: pointer;
 }
 

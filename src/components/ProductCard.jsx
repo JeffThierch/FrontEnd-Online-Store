@@ -24,7 +24,7 @@ export default class ProductCard extends Component {
           alt={ `img from ${title}` }
           className="product-img"
         />
-        <p className="product-price">{price}</p>
+        <p className="product-price">{`R$ ${price}`}</p>
         <button
           data-testid="product-add-to-cart"
           type="button"

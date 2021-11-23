@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import CartIcon from '../assets/CartIcon';
 import '../styles/Header.css';
+import Logo from '../images/store.png';
 
 export default class Header extends Component {
   render() {

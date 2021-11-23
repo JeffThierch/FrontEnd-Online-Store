@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import CartItem from '../components/CartItem';
+import '../styles/Cart.css';
 
 export default class Cart extends Component {
   constructor(props) {
@@ -31,9 +32,14 @@ export default class Cart extends Component {
   render() {
     const { cartItems } = this.state;
     return (
-      <div>
+      <div className="cartItem-list">
         {cartItems.length === 0 ? (
-          <p data-testid="shopping-cart-empty-message">Seu carrinho está vazio</p>) : (
+          <p
+            data-testid="shopping-cart-empty-message"
+            className="empty-cart-text"
+          >
+            Seu carrinho está vazio
+          </p>) : (
 
           cartItems.map((items, index) => (
             <CartItem key={ index } cartItems={ items } />
