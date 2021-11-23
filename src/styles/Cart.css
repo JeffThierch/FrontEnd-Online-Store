@@ -7,7 +7,7 @@
 .cart-item {
   background-color: #202021;
   border-radius: 9px;
-  box-shadow: 0px 6px 6px 0px #00000066;
+  box-shadow: 0 6px 6px 0 hsla(0, 0%, 0%, 0.4);
   margin: 1rem;
   padding: 2rem;
   width: 12rem;
@@ -15,52 +15,45 @@
 
 .description-section {
   display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
+  flex-flow: column;
   justify-content: space-evenly;
   text-align: center;
 }
 
 .quantity-section {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-flow: row;
   justify-content: space-between;
 }
 
 .empty-cart-text {
   color: white;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: -apple-system , Roboto , sans-serif;
   font-size: 1.5rem;
   text-align: center;
 }
 
 .cartItem-title {
   color: white;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: -apple-system , Roboto , sans-serif;
 }
 
 .cartItem-price {
   color: white;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: -apple-system , Roboto , sans-serif;
 }
 
 .cartItem-quantity {
   color: white;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: -apple-system , Roboto , sans-serif;
 }
 
 .decrease-btn {
   background-color: #793280;
   border: none;
   border-radius: 3px;
-  color: #fff;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  color: white;
+  font-family: -apple-system , Roboto , sans-serif;
   padding: 0.75rem 1.5rem;
 }
 
@@ -74,9 +67,8 @@
   background-color: #793280;
   border: none;
   border-radius: 3px;
-  color: #fff;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  color: white;
+  font-family: -apple-system , Roboto , sans-serif;
   padding: 0.75rem 1.5rem;
 }
 
