@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import CartItem from '../components/CartItem';
 import '../styles/Cart.css';
@@ -48,6 +49,9 @@ export default class Cart extends Component {
             <CartItem key={ index } cartItems={ items } attCart={ addToCart } />
           ))
         )}
+        <Link to="/checkout">
+          <button type="button" data-testid="checkout-products">Finalizar Compra</button>
+        </Link>
 
       </div>
     );

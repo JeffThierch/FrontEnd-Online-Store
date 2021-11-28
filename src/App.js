@@ -7,6 +7,7 @@ import ProductDetails from './pages/ProductDetails';
 import Header from './components/Header';
 import { recoverdCartItemsFromLocalStorage,
   saveCartItemsInLocalStorage } from './services/localStorageFuncions';
+import Checkout from './pages/Checkout';
 
 class App extends React.Component {
   constructor(props) {
@@ -88,7 +89,7 @@ class App extends React.Component {
   }
 
   render() {
-    const { cartQuantity, totalCartValue } = this.state;
+    const { cartQuantity, totalCartValue, userCartProducts } = this.state;
     return (
       <BrowserRouter>
         <Header cartQuantity={ cartQuantity } />
@@ -105,6 +106,13 @@ class App extends React.Component {
             render={ () => (<Cart
               addToCart={ this.addToCart }
               cartTotalValue={ totalCartValue.toString() }
+            />) }
+          />
+          <Route
+            path="/checkout"
+            render={ () => (<Checkout
+              cartItems={ userCartProducts }
+              totalValue={ totalCartValue }
             />) }
           />
           <Route
