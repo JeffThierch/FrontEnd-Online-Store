@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import CartIcon from '../assets/CartIcon';
 import '../styles/Header.css';
 
 export default class Header extends Component {
   render() {
+    const { cartQuantity } = this.props;
     return (
       <header className="header-container">
         <div className="header-texts">
@@ -18,6 +20,7 @@ export default class Header extends Component {
           <Link to="/cart" data-testid="shopping-cart-button">
             <button className="cart-btn" type="button">
               <CartIcon />
+              <span data-testid="shopping-cart-size">{cartQuantity}</span>
             </button>
           </Link>
         </div>
@@ -25,3 +28,7 @@ export default class Header extends Component {
     );
   }
 }
+
+Header.propTypes = {
+  cartQuantity: PropTypes.number.isRequired,
+};

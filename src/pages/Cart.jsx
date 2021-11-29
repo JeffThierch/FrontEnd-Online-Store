@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import CartItem from '../components/CartItem';
 import '../styles/Cart.css';
 
@@ -31,8 +33,10 @@ export default class Cart extends Component {
 
   render() {
     const { cartItems } = this.state;
+    const { addToCart, cartTotalValue } = this.props;
     return (
       <div className="cartItem-list">
+        <p>{`Total: R$ ${cartTotalValue}`}</p>
         {cartItems.length === 0 ? (
           <p
             data-testid="shopping-cart-empty-message"
@@ -42,11 +46,19 @@ export default class Cart extends Component {
           </p>) : (
 
           cartItems.map((items, index) => (
-            <CartItem key={ index } cartItems={ items } />
+            <CartItem key={ index } cartItems={ items } attCart={ addToCart } />
           ))
         )}
+        <Link to="/checkout">
+          <button type="button" data-testid="checkout-products">Finalizar Compra</button>
+        </Link>
 
       </div>
     );
   }
 }
+
+Cart.propTypes = {
+  addToCart: PropTypes.func.isRequired,
+  cartTotalValue: PropTypes.string.isRequired,
+};

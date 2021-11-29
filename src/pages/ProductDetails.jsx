@@ -43,23 +43,33 @@ export default class ItemCard extends Component {
     return (
       <main>
         <section>
+
           <div>
             <h1 data-testid="product-detail-name">{ title }</h1>
             <h2>{ `R$ ${price}` }</h2>
           </div>
-          {freeShiping ? <p data-testid="free-shipping">DIGRATIS</p> : ''}
+
+          {freeShiping ? <p data-testid="free-shipping">Frete Gratis</p> : ''}
+
           <img src={ thumbnail } alt={ `img from ${title}` } />
+
           {attributes.map(({ id, name, value_name: valueName }) => (
             <p key={ id }>{ `${name}: ${valueName}` }</p>
           ))}
+
           <button
             data-testid="product-detail-add-to-cart"
             type="button"
-            onClick={ () => addToCart({ name: title, price, availableQuantity }) }
+            onClick={ () => addToCart({
+              name: title,
+              price,
+              quantity: 1,
+              availableQuantity,
+            }) }
           >
             Adicionar ao carrinho
-
           </button>
+
         </section>
 
         <section>

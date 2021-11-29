@@ -23,7 +23,7 @@ export default class ProductCard extends Component {
         >
           <h1>{title}</h1>
         </Link>
-        {freeShiping ? <p data-testid="free-shipping">DIGRATIS</p> : ''}
+        {freeShiping ? <p data-testid="free-shipping">Frete Gratis</p> : ''}
 
         <img
           src={ thumbnail }
@@ -35,10 +35,14 @@ export default class ProductCard extends Component {
           data-testid="product-add-to-cart"
           type="button"
           className="product-btn"
-          onClick={ () => addToCart({ name: title, price, availableQuantity }) }
+          onClick={ () => addToCart({
+            name: title,
+            price,
+            quantity: 1,
+            availableQuantity,
+          }) }
         >
           Adicionar ao carrinho
-
         </button>
       </section>
     );
