@@ -36,22 +36,34 @@ export default class Cart extends Component {
     const { addToCart, cartTotalValue } = this.props;
     return (
       <div className="cartItem-list">
-        <p>{`Total: R$ ${cartTotalValue}`}</p>
+
         {cartItems.length === 0 ? (
           <p
             data-testid="shopping-cart-empty-message"
             className="empty-cart-text"
           >
             Seu carrinho está vazio
-          </p>) : (
-
-          cartItems.map((items, index) => (
-            <CartItem key={ index } cartItems={ items } attCart={ addToCart } />
-          ))
-        )}
-        <Link to="/checkout">
-          <button type="button" data-testid="checkout-products">Finalizar Compra</button>
-        </Link>
+          </p>)
+          : (
+            <section className="cart-items-container-section">
+              {
+                cartItems.map((items, index) => (
+                  <CartItem key={ index } cartItems={ items } attCart={ addToCart } />
+                ))
+              }
+            </section>
+          )}
+        <div className="cart-total-container-section">
+          <p>{`Total: R$ ${cartTotalValue}`}</p>
+          <Link to="/checkout">
+            <button
+              type="button"
+              data-testid="checkout-products"
+            >
+              Finalizar Compra
+            </button>
+          </Link>
+        </div>
 
       </div>
     );
